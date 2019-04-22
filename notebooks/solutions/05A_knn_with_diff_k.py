@@ -18,13 +18,11 @@ X_trainsub, X_valid, y_trainsub, y_valid = train_test_split(X_train, y_train,
 
 for k in range(1, 20):
     knn = KNeighborsClassifier(n_neighbors=k)
-    train_score = knn.fit(X_trainsub, y_trainsub).\
-        score(X_trainsub, y_trainsub)
+    train_score = knn.fit(X_trainsub, y_trainsub).score(X_trainsub, y_trainsub)
     valid_score = knn.score(X_valid, y_valid)
-    print('k: %d, Train/Valid Acc: %.3f/%.3f' %
-          (k, train_score, valid_score))
+    print(f"k: {k}, Train/Valid Acc: {train_score:.3f}/{valid_score:.3f}")
 
 
 knn = KNeighborsClassifier(n_neighbors=9)
 knn.fit(X_train, y_train)
-print('k=9 Test Acc: %.3f' % knn.score(X_test, y_test))
+print(f"k=9 Test Acc: {knn.score(X_test, y_test):.3f}")
