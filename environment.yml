@@ -1,12 +1,11 @@
-name: tutorial-sklearn
+name: moderator-tutorial
 dependencies:
-   - python=3.6
+   - python=3.7
    - numpy
-   - scipy
    - matplotlib
-   - pandas
+   - pandas=0.24
    - pillow
    - scikit-learn
-   - jupyter
-   - ipython
-   - pyzmq
+   - jupyterlab
+   - seaborn
+   - git
