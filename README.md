@@ -1,63 +1,19 @@
-SciPy 2018 Scikit-learn Tutorial
+SciPy Tutorial 2: Machine learning with scikit-learn
 ================================
 
+- [조진환](https://chofchof.github.io/)  [@chofchof](https://github.com/chofchof) - 국가수리과학연구소, 산업수학혁신센터
 
-Instructors
------------
+----
 
-- [Guillaume Lemaitre](https://glemaitre.github.io/)  [@glemaitre](https://github.com/glemaitre) - Inria, Université Paris-Saclay
-- [Andreas Mueller](http://amuller.github.io) [@amuellerml](https://twitter.com/amuellerml) - Columbia University; [Book: Introduction to Machine Learning with Python](http://shop.oreilly.com/product/0636920030515.do)
+이 리포지토리는 2019년 4월 25일 (PM 13:30~17:30) 산업수학혁신센터에서 열린 2019년 1차 산업수학 모더레이터 역량강화 프로그램 2일차 튜토리얼 자료를 담고 있습니다.
 
----
-
-
-This repository will contain the teaching material and other info associated with our scikit-learn tutorial
-at [SciPy 2018](http://scipy2018.scipy.org/) held July 9-15 in Austin, Texas.
-
-Parts 1 to 12 make up the morning session, while
-parts 13 to 23 will be presented in the afternoon (approximately)
-
-### Schedule:
-
-The 2-part tutorial will be held on Tuesday, July 10, 2018.
+이 자료는 2018년 7월 9-15일 미국 텍사스 오스틴에서 열린 [SciPy 2018](http://scipy2018.scipy.org/) 에서 [Guillaume Lemaitre](https://glemaitre.github.io/) 와 [Andreas Mueller](http://amuller.github.io) 가 진행한 [Scikit-learn 튜토리얼 자료](https://github.com/amueller/scipy-2018-sklearn)를 포크한 후 수정한 것입니다.
 
 
-
-Obtaining the Tutorial Material
---------------------------------
-
-
-If you have a GitHub account, it is probably most convenient if you clone or
-fork the GitHub repository. You can clone the repository by running:
-
-```bash
-git clone https://github.com/amueller/scipy-2018-sklearn.git
-```
-
- If you are not familiar with git or don’t have an
-GitHub account, you can download the repository as a .zip file by heading over
-to the GitHub repository (https://github.com/amueller/scipy-2018-sklearn) in
-your browser and click the green “Download” button in the upper right.
-
-![](images/download-repo.png)
-
-Please note that we may add and improve the material until shortly before the
-tutorial session, and we recommend you to update your copy of the materials one
-day before the tutorials. If you have an GitHub account and cloned the
-repository via GitHub, you can sync your existing local repository with:
-
-```bash
-git pull origin master
-```
-
-If you don’t have a GitHub account, you may have to re-download the .zip
-archive from GitHub.
-
-
-Installation Notes
+패키지 설치
 ------------------
 
-This tutorial will require recent installations of
+이 튜토리얼은 Python 3.7 버전을 기반으로 아래와 같은 패키지들을 사용합니다.
 
 - [NumPy](http://www.numpy.org)
 - [SciPy](http://www.scipy.org)
@@ -65,82 +21,67 @@ This tutorial will require recent installations of
 - [pandas](http://pandas.pydata.org)
 - [pillow](https://python-pillow.org)
 - [scikit-learn](http://scikit-learn.org/stable/)
-- [IPython](http://ipython.readthedocs.org/en/stable/)
-- [Jupyter Notebook](http://jupyter.org)
+- [JupyterLab](https://jupyterlab.readthedocs.io)
 
+[Anaconda3](https://www.anaconda.com/distribution/) 또는 [Miniconda3](https://repo.continuum.io/miniconda/)이 미리 설치되어 있는 상태에서
 
-The last one is important and you should be able to type:
+1. `environment.yml` 파일을 [https://raw.githubusercontent.com/dlimpid/nims-moderator-2019-04/master/environment.yml](https://raw.githubusercontent.com/dlimpid/nims-moderator-2019-04/master/environment.yml) 에서 다운로드합니다.
+2. 터미널 (윈도의 경우 Anaconda Prompt)을 열고 다음 명령을 실행하면 `moderator-tutorial` 환경이 만들어집니다.
 
-    jupyter notebook
+   ```bash
+   conda env create -f environment.yml 
+   ```
 
-in your terminal window and see the notebook panel load in your web browser.
-Try opening and running a notebook from the material to see check that it works. Alternatively you can use Jupyter lab.
+자료 다운로드
+------------------
 
-For users who do not yet have the required packages installed, a relatively
-painless way to install all the requirements is to use a Python distribution
-such as [Anaconda](https://www.anaconda.com/download/ "Anaconda"), which includes
-the most relevant Python packages for science, math, engineering, and
-data analysis; Anaconda can be downloaded and installed for free
-including commercial use and redistribution.
-The code examples in this tutorial should be compatible to Python 2.7,
-Python 3.4-3.6.
-
-After obtaining the material, we **strongly recommend** you to open and execute
-the Jupyter Notebook `jupter notebook check_env.ipynb` that is located at the
-top level of this repository. Inside the repository, you can open the notebook
-by executing
+자료를 처음 다운로드하는 경우 아래의 명령을 사용하면 리포지토리를 복사할 수 있습니다.
 
 ```bash
-jupyter notebook check_env.ipynb
+git clone https://github.com/chofchof/scipy-2018-sklearn.git
 ```
 
-inside this repository. Inside the Notebook, you can run the code cell by
-clicking on the "Run Cells" button as illustrated in the figure below:
+이미 자료를 다운로드한 경우 아래의 명령을 사용하면 변경된 내용만 가져올 수 있습니다.
 
-![](images/check_env-1.png)
+```bash
+git pull
+```
 
+JupyterLab 실행
+------------------
 
-Finally, if your environment satisfies the requirements for the tutorials, the
-executed code cell will produce an output message as shown below:
+JupyterLab은 다음 명령으로 실행할 수 있습니다.
 
-![](images/check_env-2.png)
+```bash
+conda activate moderator-tutorial
+jupyter-lab 
+```
 
-Although not required, we also recommend you to update the scikit-learn the latest release version to ensure best compatibility with the teaching material. Please upgrade already installed packages by executing
+먼저 `check_env.ipynb` 파일을 연 후 코드를 실행해 다음 결과가 나오는 지 체크합니다.
 
-- `pip install --no-deps --upgrade [package-name]`  
-- or `conda update [package-name]`
+```python
+Using python in /opt/conda/envs/moderator-tutorial
+3.7.3 (default, Mar 27 2019, 16:54:48) 
+[Clang 4.0.1 (tags/RELEASE_401/final)]
 
-Depending on how you installed ``scikit-learn``.
+[ OK ] numpy version 1.16.2
+[ OK ] scipy version 1.2.1
+[ OK ] matplotlib version 3.0.3
+[ OK ] pandas version 0.24.2
+[ OK ] sklearn version 0.20.3
+[ OK ] PIL version 6.0.0
+```
 
-
-Data Downloads
+데이터 다운로드
 --------------
 
-The data for this tutorial is not included in the repository.  We will be
-using several data sets during the tutorial: most are built-in to
-scikit-learn, which
-includes code that automatically downloads and caches these
-data.
-
-**Because the wireless network
-at conferences can often be spotty, it would be a good idea to download these
-data sets before arriving at the conference.
-Please run**
+~~데이터 다운로드는 다음 명령으로 수행할 수 있습니다.~~
 ```bash
 python fetch_data.py
 ```
-**to download all necessary data beforehand.**
 
-The download size of the data files are approx. 280 MB, and after `fetch_data.py`
-extracted the data on your disk, the ./notebook/dataset folder will take 480 MB
-of your local hard drive.
-
-
-Outline
+목차
 =======
-
-Morning Session
----------------
 
 - 01 Introduction to machine learning with sample applications, Supervised and Unsupervised learning [[view](notebooks/01.Introduction_to_Machine_Learning.ipynb)]
 - 02 Scientific Computing Tools for Python: NumPy, SciPy, and matplotlib [[view](notebooks/02.Scientific_Computing_Tools_in_Python.ipynb)]
@@ -154,9 +95,6 @@ Morning Session
 - 10 Preparing a real-world dataset (titanic) [[view](notebooks/10.Case_Study-Titanic_Survival.ipynb)]
 - 11 Working with text data via the bag-of-words model [[view](notebooks/11.Text_Feature_Extraction.ipynb)]
 - 12 Application: IMDb Movie Review Sentiment Analysis [[view](notebooks/12.Case_Study-SMS_Spam_Detection.ipynb)]
-
-Afternoon Session
------------------
 
 - 13 Cross-Validation [[view](notebooks/13.Cross_Validation.ipynb)]
 - 14 Model complexity and grid search for adjusting hyperparameters [[view](notebooks/14.Model_Complexity_and_GridSearchCV.ipynb)]
