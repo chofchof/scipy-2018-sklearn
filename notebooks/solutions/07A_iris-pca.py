@@ -19,14 +19,10 @@ X_test_pca = pca.transform(sc.transform(X_test))
 
 for X, y in zip((X_train_pca, X_test_pca), (y_train, y_test)):
 
+    fig, ax = plt.subplots()
     for i, annot in enumerate(zip(('Iris-setosa', 'Iris-versicolor', 'Iris-virginica'),
                                   ('blue', 'red', 'green'))):
-        plt.scatter(X[y==i, 0],
-                    X[y==i, 1],
-                    label=annot[0],
-                    c=annot[1])
-    plt.xlabel('Principal Component 1')
-    plt.ylabel('Principal Component 2')
-    plt.legend(loc='best')
-    plt.tight_layout()
-    plt.show()
+        ax.scatter(X[y==i, 0], X[y==i, 1], label=annot[0], c=annot[1])
+    ax.set(xlabel='Principal Component 1', ylabel='Principal Component 2')
+    ax.legend(loc='best')
+    fig.tight_layout()
