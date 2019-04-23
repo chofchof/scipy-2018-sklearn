@@ -75,10 +75,6 @@ Using python in /opt/conda/envs/moderator-tutorial
 데이터 다운로드
 --------------
 
-~~데이터 다운로드는 다음 명령으로 수행할 수 있습니다.~~
-```bash
-python fetch_data.py
-```
 
 목차
 =======
