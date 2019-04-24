@@ -7,7 +7,7 @@ SciPy Tutorial 2: Machine learning with scikit-learn
 
 이 리포지토리는 2019년 4월 25일 (PM 13:30~17:30) 산업수학혁신센터에서 열린 2019년 1차 산업수학 모더레이터 역량강화 프로그램 2일차 튜토리얼 자료를 담고 있습니다.
 
-이 자료는 2018년 7월 9-15일 미국 텍사스 오스틴에서 열린 [SciPy 2018](http://scipy2018.scipy.org/) 에서 [Guillaume Lemaitre](https://glemaitre.github.io/) 와 [Andreas Mueller](https://github.com/amueller) 가 진행한 [Scikit-learn 튜토리얼 자료](https://github.com/amueller/scipy-2018-sklearn)를 포크한 후 수정한 것입니다.
+이 자료는 2018년 7월 9-15일 미국 텍사스 오스틴에서 열린 [SciPy 2018](http://scipy2018.scipy.org/) 에서 [Guillaume Lemaitre](https://glemaitre.github.io/) 와 [Olivier Grisel](http://ogrisel.com) 이 진행한 [Scikit-learn 튜토리얼 자료](https://github.com/amueller/scipy-2018-sklearn)를 포크한 후 수정한 것입니다.
 
 
 패키지 설치
